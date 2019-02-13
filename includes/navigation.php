@@ -25,8 +25,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Register Complaint <span class="caret"></span></a>
                   		<ul class="dropdown-menu">
-                  			<li><a href="#">Staff</a></li>
-                  			<li><a href="#">Student</a></li>
+                  			<li><a href="staff_form.php">Staff</a></li>
+                  			<li><a href="student_form.php">Student</a></li>
                   		</ul>
                     </li>
                     <li>
@@ -42,6 +42,11 @@
                         <a href="#">Help</a>
                     </li>
 
+                </ul>
+                <!-- Top Navigation: Right Menu -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="login.php">Staff Login</a></li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

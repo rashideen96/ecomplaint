@@ -29,6 +29,8 @@ include('db.php');
 					
 				</div>
 			</form>
+			<!-- <button type="button" id="print">Print</button> -->
+
 		</div>
 	</div>
 
@@ -59,7 +61,21 @@ include('db.php');
 				}
 			});
 		});
+
+		// Print function
+		$('.print').on('click', function(){
+			//e.preventDefault();
+			console.log('click');
+		});
+
+		$(document).on('click', '.print', function(){
+		    //alert("success");
+		    window.print();
+		});
+
+
 	});
+
 </script>	
 	
 <?php include('includes/footer.php'); ?>

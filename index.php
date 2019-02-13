@@ -58,7 +58,8 @@ if(isset($_POST['submit']))
 		}
 		else
 		{
-			$msg = "Complaint submitted";
+			$lastID = mysqli_insert_id($conn);
+			$msg = "Complaint submitted. Your ID is ".$lastID;
 		}
 	}
 }
@@ -97,23 +98,32 @@ if(isset($_POST['submit']))
 					<label>Phone/Mobile</label>
 					<input class="form-control r" type="text" name="studPhoneNo" placeholder="Eg. 0133634357" maxlength="10" required>
 				</div>
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<label>Department</label>
 					<select class="form-control r" name="dept" id="dept" required>
 						<option value="">--Select--</option>
 						<?= load_faculty();  ?>
 						
 					</select>
-				</div>
+				</div> -->
 				<div class="form-group">
 					<label>Faculty</label>
-					<select class="form-control r" name="faculty" id="faculty" required>
+					<select class="form-control r" name="dept" id="dept" required>
 						
 					</select>
 				</div>
-				<div class="form-group">
+
+				<!-- Enable this for online version -->
+				<!-- <div class="form-group">
 					<label>Location</label>
 					<select class="form-control r" name="location" id="loc" required>
+						
+					</select>
+				</div> -->
+				<!-- Enable this for offline version -->
+				<div class="form-group">
+					<label>Location</label>
+					<select class="form-control r" name="location" id="location" required>
 						
 					</select>
 				</div>
@@ -170,18 +180,18 @@ if(isset($_POST['submit']))
 
 <script>
 $(document).ready(function(){
-	$('#dept').on('change', function(){
-		var dept_id = $(this).val();
-		$.ajax({
-			url: "fetch_location.php",
-			method: "POST",
-			data: {dept_id:dept_id},
-			dataType: "text",
-			success: function(data){
-				$('#loc').html(data);
-			}
-		});
-	});
+	// $('#dept').on('change', function(){
+	// 	var dept_id = $(this).val();
+	// 	$.ajax({
+	// 		url: "fetch_location.php",
+	// 		method: "POST",
+	// 		data: {dept_id:dept_id},
+	// 		dataType: "text",
+	// 		success: function(data){
+	// 			$('#loc').html(data);
+	// 		}
+	// 	});
+	// });
 
 	$('#compType').on('change', function(){
 		var cid = $(this).val();
@@ -232,7 +242,7 @@ $(document).ready(function(){
 			faculty += '<option value="'+value.name+'">'+value.name+'</option>';
 		});
 
-		$('#faculty').html(faculty);
+		$('#dept').html(faculty);
 	});
 
 	// Load local json file for priority
@@ -247,6 +257,21 @@ $(document).ready(function(){
 
 		$('#prior').html(prior);
 	});
+
+	// Load local json file for location
+	// Offline version
+	$.getJSON("location.json", function(data){
+		var location = '';
+		//console.log(data);
+		location += '<option value="">--Select--</option>';
+		$.each(data, function(key, value){
+			location += '<option value="'+value.name+'">'+value.name+'</option>';
+		});
+
+		$('#location').html(location);
+	});
+
+	
 });
 </script>
 	

@@ -33,3 +33,8 @@ footer {
 .h {
 	background-color: white;
 }
+
+.btn-default {
+	background-color: orange !important;
+	color: white;
+}
