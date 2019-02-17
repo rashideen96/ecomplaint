@@ -1,7 +1,7 @@
 # E-Complaint Tracking system
-## Develop by Deen
-## 17/2/2019
-## E-Tracking system to track every complaint submmited from user
+Develop by Deen
+17/2/2019
+E-Tracking system to track every complaint submmited from user
 
 # Installation
 
