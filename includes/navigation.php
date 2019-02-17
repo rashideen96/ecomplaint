@@ -1,10 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<div class="container-fluid banner">
-			<div class="container">
-				<h1>Unisel </h1>
-			</div>
-			
-		</div>
+		
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -33,10 +28,10 @@
                         <a href="track.php">Track</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="contact.php">Contact</a>
                     </li>
                     <li>
-                        <a href="#">Feedback</a>
+                        <a href="feedback.php?p=suggestion">Feedback</a>
                     </li>
                     <li>
                         <a href="#">Help</a>
